@@ -1,6 +1,6 @@
 const VerifyToken = (req, res) => {
   try {
-    let accessToken = process.env.ACCESS_TOKEN;
+    let accessToken = "QWERTYASDFGH";
     let token = req.query["hub-verify_token"];
     let challenge = req.query["hub.challenge"];
     if (challenge != null && token != null && token == accessToken) {
