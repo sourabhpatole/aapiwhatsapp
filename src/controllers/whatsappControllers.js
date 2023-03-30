@@ -3,7 +3,7 @@ const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 
 const VerifyToken = (req, res) => {
   try {
-    let accessToken = process.env.ACCESS_TOKEN;
+    let accessToken = process.env.TOKEN;
     let token = req.query["hub-verify_token"];
     let challenge = req.query["hub.challenge"];
     if (challenge != null && token != null && token == accessToken) {
@@ -49,7 +49,7 @@ const GetTextUser = (messages) => {
   } else {
     myConsole.log("seen message");
   }
-  return text
+  return text;
 };
 
 module.exports = { VerifyToken, ReceiveMessages };
