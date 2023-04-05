@@ -3,7 +3,8 @@ const { sendMessageWhatsapp } = require("../services/whatsappService");
 const {
   SampleText,
   SampleImage,
-  SampleButton
+  SampleButton,
+  SampleTemplate
 } = require("../shared/sampleModels");
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 
@@ -32,7 +33,10 @@ const ReceiveMessages = (req, res) => {
     // let name = contacts["profile"];
     // myConsole.log(nameMessage);
 
-    if (typeof messageObject != "undefined") {
+    if (
+      typeof messageObject != "undefined" ||
+      typeof nameMessage != "undefined"
+    ) {
       let dname = nameMessage[0];
       let name = getName(dname);
       // myConsole.log("my name is", name);
@@ -40,10 +44,10 @@ const ReceiveMessages = (req, res) => {
       let number = messages["from"];
 
       let text = getMessage(messages);
-      myConsole.log(text);
+      // myConsole.log(text);
       // myConsole.log("my name is", name);
       if (text == "Hi") {
-        let data = SampleText("Hello " + name + "\nNice to meet you", number);
+        let data = SampleTemplate(name, number);
         sendMessageWhatsapp(data);
       } else if (text == "image") {
         let data = SampleImage(number);

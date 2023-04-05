@@ -9,7 +9,7 @@ const sendMessageWhatsapp = (data) => {
     headers: {
       "Content-Type": "application/json",
       Authorization:
-        "Bearer EAAbTC4AlIGgBAPeZB5TrLxFMUt7SGgYRFtBtiaZBu7LeEMMCm8SwwrEoWVv2KNWdTq1AZBwQParUZCP1Qw1cxpyRDfc8tXADuvp4eZB254pMNuEv8wjMJ0soL97lU1m1uWGKK3ZCnZAyUHfVMnvBU4KmqFTqf6cteEBZCjig5AEI1c5f2ZAOqC8lXhAM7K2VYgzCOqvReBWScSQZDZD"
+        "Bearer EAAbTC4AlIGgBAPU967ZCnjxRRIQdl39C2hlds9xuVtjfLh5qcZAYozNeAt3uZCtvBCqPVz7XyvPwOUsPAjGsGi32P44LPsevkmmUdkk0qRRdZCnHmB3Sbo7jZA15FUWAeiwFqRlnNu7ZBAyddSyvFtdvosqdCC3wEccqbtqCTsM0mP2WfIZA0FKsW0z1IzRNjcR6XawCvlDxQZDZD"
     }
   };
   const req = https.request(options, (res) => {
