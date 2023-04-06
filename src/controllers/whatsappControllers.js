@@ -1,11 +1,6 @@
 const fs = require("fs");
 const { sendMessageWhatsapp } = require("../services/whatsappService");
-const {
-  SampleText,
-  SampleImage,
-  SampleButton,
-  SampleTemplate
-} = require("../shared/sampleModels");
+const processMessage = require(".././shared/processMessages");
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 
 const VerifyToken = (req, res) => {
@@ -46,18 +41,8 @@ const ReceiveMessages = (req, res) => {
       let text = getMessage(messages);
       // myConsole.log(text);
       // myConsole.log("my name is", name);
-      if (text == "Hi") {
-        let data = SampleTemplate(name, number);
-        sendMessageWhatsapp(data);
-      } else if (text == "image") {
-        let data = SampleImage(number);
-        sendMessageWhatsapp(data);
-      } else if (text == "button") {
-        let data = SampleButton(number);
-        sendMessageWhatsapp(data);
-      } else {
-        let data = SampleText("Not Understanding", number);
-        sendMessageWhatsapp(data);
+      if (text != "") {
+        processMessage.Process(text, name, number);
       }
     }
     res.send("EVENT_RECEIVED");
@@ -91,7 +76,7 @@ const getMessage = (messages) => {
 const getName = (dname) => {
   let display = "";
   display = dname["profile"]["name"];
-  myConsole.log(display);
+  // myConsole.log(display);
   return display;
 };
 
