@@ -16,28 +16,28 @@ const Process = (textUser, text, number) => {
     models.push(model);
   } else if (text == "lunch-veg") {
     let model = MessageTemplateForVeg(
-      `Thank you ${textUser} for choosing a vegetarian dish for Lunch. We will add it to our menu for you! `,
+      `Thank you ${textUser} for choosing a vegetarian dish for _*Lunch*_. We will add it to our menu for you! `,
       number
     );
 
     models.push(model);
   } else if (text == "lunch-non-veg") {
     let model = MessageTemplateForNonVeg(
-      `Awesome, ${textUser} you have chosen non-vegetarian dish for Lunch. We will add it to our menu for you!`,
+      `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Lunch*_. We will add it to our menu for you!`,
       number
     );
 
     models.push(model);
   } else if (text == "dinner-veg") {
     let model = MessageTemplateForVeg(
-      `Thank you ${textUser} for choosing a vegetarian dish for Dinner. We will add it to our menu for you! `,
+      `Thank you ${textUser} for choosing a vegetarian dish for _*Dinner*_. We will add it to our menu for you! `,
       number
     );
 
     models.push(model);
   } else if (text == "dinner-non-veg") {
     let model = MessageTemplateForNonVeg(
-      `Awesome, ${textUser} you have chosen non-vegetarian dish for Dinner. We will add it to our menu for you!`,
+      `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Dinner_*. We will add it to our menu for you!`,
       number
     );
 
