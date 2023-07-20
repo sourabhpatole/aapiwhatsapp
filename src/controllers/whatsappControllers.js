@@ -1,8 +1,10 @@
 const fs = require("fs");
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 const { sendMessageWhatsapp } = require("../services/whatsappService");
-const wmessagedb = require("../model/WmessageSchema");
 const processMessage = require(".././shared/processMessages");
+const whatsapplunch = require("../model/WmessageSchemaL");
+const whatsappdinner = require("../model/WmessageSchemaD");
+
 const myArray = [];
 
 const VerifyToken = (req, res) => {
@@ -43,12 +45,17 @@ const ReceiveMessages = async (req, res) => {
       let text = getMessage(messages);
       if (text != "") {
         processMessage.Process(name, text, number);
-        if (text == "Non-veg" || text == "Veg") {
-          let sourabh = new wmessagedb({
+        if (text == "Lunch-Non-veg" || text == "Lunch-Veg") {
+          let sourabh = new whatsapplunch({
             name,
             foodChoice: text,
           });
           await sourabh.save();
+        } else if (text == "Dinner-Veg" || text == "Dinner-Non-Veg") {
+          let wdinner = new whatsappdinner({
+            name,
+            foodChoice: text,
+          });
         }
         myArray.push(sourabh);
         // myConsole.log("my name is", name);

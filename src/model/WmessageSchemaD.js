@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const WmessageSchema = new mongoose.Schema(
+const DinnerWhatsappSchema = new mongoose.Schema(
   {
     name: {
       type: "String",
@@ -16,5 +16,8 @@ const WmessageSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-const wmessagedb = new mongoose.model("whatsapp", WmessageSchema);
-module.exports = wmessagedb;
+const whatsappdinner = new mongoose.model(
+  "whatsappdinner",
+  DinnerWhatsappSchema
+);
+module.exports = whatsappdinner;

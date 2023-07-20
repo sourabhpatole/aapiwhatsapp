@@ -14,16 +14,30 @@ const Process = (textUser, text, number) => {
   if (text.includes("hi")) {
     let model = MessageTemplate(text, number);
     models.push(model);
-  } else if (text == "veg") {
+  } else if (text == "lunch-veg") {
     let model = MessageTemplateForVeg(
       `Thank you ${textUser} for choosing a vegetarian dish for Lunch. We will add it to our menu for you! `,
       number
     );
 
     models.push(model);
-  } else if (text == "non-veg") {
+  } else if (text == "lunch-non-veg") {
     let model = MessageTemplateForNonVeg(
       `Awesome, ${textUser} you have chosen non-vegetarian dish for Lunch. We will add it to our menu for you!`,
+      number
+    );
+
+    models.push(model);
+  } else if (text == "dinner-veg") {
+    let model = MessageTemplateForVeg(
+      `Thank you ${textUser} for choosing a vegetarian dish for Dinner. We will add it to our menu for you! `,
+      number
+    );
+
+    models.push(model);
+  } else if (text == "dinner-non-veg") {
+    let model = MessageTemplateForNonVeg(
+      `Awesome, ${textUser} you have chosen non-vegetarian dish for Dinner. We will add it to our menu for you!`,
       number
     );
 
