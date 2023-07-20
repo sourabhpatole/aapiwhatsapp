@@ -6,14 +6,18 @@ const {
   MessageTemplate,
   MessageTemplateForNonVeg,
   MessageTemplateForVeg,
+  MessageTemplateLunch,
+  MessageTemplateDinner,
 } = require("./whatsappModels");
 const Process = (textUser, text, number) => {
   text = text.toLowerCase();
   console.log(text);
   let models = [];
   if (text.includes("hi")) {
-    let model = MessageTemplate(text, number);
+    let model = MessageTemplateLunch(text, number);
+    let model2 = MessageTemplateDinner(text, dinner);
     models.push(model);
+    models.push(model2);
   } else if (text == "lunch-veg") {
     let model = MessageTemplateForVeg(
       `Thank you ${textUser} for choosing a vegetarian dish for _*Lunch*_. We will add it to our menu for you! `,
@@ -29,19 +33,19 @@ const Process = (textUser, text, number) => {
 
     models.push(model);
   } else if (text == "dinner-veg") {
-    let model = MessageTemplateForVeg(
+    let model1 = MessageTemplateForVeg(
       `Thank you ${textUser} for choosing a vegetarian dish for _*Dinner*_. We will add it to our menu for you! `,
       number
     );
 
-    models.push(model);
+    models.push(model1);
   } else if (text == "dinner-non-veg") {
-    let model = MessageTemplateForNonVeg(
+    let model1 = MessageTemplateForNonVeg(
       `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Dinner_*. We will add it to our menu for you!`,
       number
     );
 
-    models.push(model);
+    models.push(model1);
   } else {
     let model = MessageText(
       `Thank you for your valuable time ${textUser}! If you have any feedback or suggestions on how we can improve our service, please don’t hesitate to let us know. We look forward to serving you again soon!`,
