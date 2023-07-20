@@ -1,7 +1,9 @@
 const fs = require("fs");
-const { sendMessageWhatsapp } = require("../services/whatsappService");
-const processMessage = require(".././shared/processMessages");
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
+const { sendMessageWhatsapp } = require("../services/whatsappService");
+const wmessagedb = require("../model/WmessageSchema");
+const processMessage = require(".././shared/processMessages");
+const myArray = [];
 
 const VerifyToken = (req, res) => {
   try {
@@ -18,7 +20,7 @@ const VerifyToken = (req, res) => {
   }
 };
 
-const ReceiveMessages = (req, res) => {
+const ReceiveMessages = async (req, res) => {
   try {
     let entry = req.body["entry"][0];
     let changes = entry["changes"][0];
@@ -34,15 +36,23 @@ const ReceiveMessages = (req, res) => {
     ) {
       let dname = nameMessage[0];
       let name = getName(dname);
-      // myConsole.log("my name is", name);
+      // myConsole.log(name);
       let messages = messageObject[0];
       let number = messages["from"];
 
       let text = getMessage(messages);
-      // myConsole.log(text);
-      // myConsole.log("my name is", name);
       if (text != "") {
-        processMessage.Process(text, name, number);
+        processMessage.Process(name, text, number);
+        if (text == "Non-veg" || text == "Veg") {
+          let sourabh = new wmessagedb({
+            name,
+            foodChoice: text,
+          });
+          await sourabh.save();
+        }
+        myArray.push(sourabh);
+        // myConsole.log("my name is", name);
+        myConsole.log(myArray);
       }
     }
     res.send("EVENT_RECEIVED");

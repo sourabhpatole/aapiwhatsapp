@@ -1,11 +1,22 @@
 const MessageText = (textResponse, number) => {
+  // const data = JSON.stringify({
+  //   messaging_product: "whatsapp",
+  //   to: number,
+  //   replay: {
+  //     body: textResponse,
+  //   },
+  //   type: "replay",
+  // });
+  // return data;
+
   const data = JSON.stringify({
     messaging_product: "whatsapp",
+    recipient_type: "individual",
     to: number,
+    type: "text",
     text: {
-      body: textResponse
+      body: textResponse,
     },
-    type: "text"
   });
   return data;
 };
@@ -14,26 +25,63 @@ const MessageTemplate = (text, number) => {
     messaging_product: "whatsapp",
     recipient_type: "individual",
     to: number,
-    type: "template",
-    template: {
-      name: "food_dept",
-      language: {
-        code: "en_US"
+    type: "interactive",
+    interactive: {
+      type: "button",
+      body: {
+        text: `Please select the type of dish would you like to add to your menu for tomorrow's lunch? 
+        If you would like to cancel, please *Ignore* the message`,
       },
-      components: [
-        {
-          type: "header",
-          parameters: [
-            {
-              type: "text",
-              text: text
-            }
-          ]
-        }
-      ]
-    }
+      action: {
+        buttons: [
+          {
+            type: "reply",
+            reply: {
+              id: "000",
+              title: "Veg",
+            },
+          },
+          {
+            type: "reply",
+            reply: {
+              id: "001",
+              title: "Non-veg",
+            },
+          },
+        ],
+      },
+    },
+  });
+  return data;
+};
+const MessageTemplateForVeg = (text, number) => {
+  const data = JSON.stringify({
+    messaging_product: "whatsapp",
+    recipient_type: "individual",
+    to: number,
+    type: "text",
+    text: {
+      body: text,
+    },
+  });
+  return data;
+};
+const MessageTemplateForNonVeg = (text, number) => {
+  const data = JSON.stringify({
+    messaging_product: "whatsapp",
+    recipient_type: "individual",
+    to: number,
+    type: "text",
+    text: {
+      body: text,
+    },
   });
   return data;
 };
 
-module.exports = { MessageText, MessageTemplate };
+module.exports = {
+  MessageText,
+  MessageTemplate,
+  MessageTemplateForVeg,
+  MessageTemplateForNonVeg,
+};
