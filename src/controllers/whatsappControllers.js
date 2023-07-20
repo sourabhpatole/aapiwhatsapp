@@ -58,7 +58,9 @@ const ReceiveMessages = async (req, res) => {
           });
           await wdinner.save();
         }
+        return;
         myArray.push(sourabh);
+        // myArray.push(wdinner);
         // myConsole.log("my name is", name);
         myConsole.log(myArray);
       }
