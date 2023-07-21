@@ -10,7 +10,8 @@ const {
   MessageTemplate,
   MessageTemplateForFood,
 } = require("./whatsappModels");
-const Process = async (textUser, text, number) => {
+const whatsapplunch = require("../model/WmessageSchemaL");
+const Process = async (textUser, text, number, name) => {
   text = text.toLowerCase();
   console.log(text);
   let models = [];
@@ -26,7 +27,11 @@ const Process = async (textUser, text, number) => {
       `Thank you ${textUser} for choosing a vegetarian dish for _*Lunch*_. We will add it to our menu for you! `,
       number
     );
-
+    let wdinner = new whatsapplunch({
+      name,
+      foodChoice: text,
+    });
+    await wdinner.save();
     models.push(model);
   } else if (text == "lunch-non-veg") {
     let model = MessageTemplateForFood(
