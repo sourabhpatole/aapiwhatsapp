@@ -27,11 +27,6 @@ const Process = async (textUser, text, number, name) => {
       `Thank you ${textUser} for choosing a vegetarian dish for _*Lunch*_. We will add it to our menu for you! `,
       number
     );
-    let sourabh = new whatsapplunch({
-      name,
-      foodChoice: text,
-    });
-    await sourabh.save();
 
     models.push(model);
   } else if (text == "lunch-non-veg") {
