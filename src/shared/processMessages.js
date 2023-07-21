@@ -35,20 +35,20 @@ const Process = (textUser, text, number) => {
     );
 
     models.push(model);
-  } else if (text == "dinner-veg") {
-    let model = MessageTemplateForVegD(
-      `Thank you ${textUser} for choosing a vegetarian dish for _*Dinner*_. We will add it to our menu for you! `,
-      number
-    );
+    // } else if (text == "dinner-veg") {
+    //   let model = MessageTemplateForVegD(
+    //     `Thank you ${textUser} for choosing a vegetarian dish for _*Dinner*_. We will add it to our menu for you! `,
+    //     number
+    //   );
 
-    models.push(model);
-  } else if (text == "dinner-non-veg") {
-    let model = MessageTemplateForNonVegD(
-      `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Dinner*_. We will add it to our menu for you!`,
-      number
-    );
+    //   models.push(model);
+    // } else if (text == "dinner-non-veg") {
+    //   let model = MessageTemplateForNonVegD(
+    //     `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Dinner*_. We will add it to our menu for you!`,
+    //     number
+    //   );
 
-    models.push(model);
+    //   models.push(model);
   } else {
     let model = MessageText(
       `Thank you for your valuable time ${textUser}! If you have any feedback or suggestions on how we can improve our service, please don’t hesitate to let us know. We look forward to serving you again soon!`,
