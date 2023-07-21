@@ -11,6 +11,7 @@ const {
   MessageTemplateForFood,
 } = require("./whatsappModels");
 const whatsapplunch = require("../model/WmessageSchemaL");
+const whatsappdinner = require("../model/WmessageSchemaD");
 const Process = async (textUser, text, number) => {
   text = text.toLowerCase();
   console.log(text);
@@ -27,17 +28,22 @@ const Process = async (textUser, text, number) => {
       `Thank you ${textUser} for choosing a vegetarian dish for _*Lunch*_. We will add it to our menu for you! `,
       number
     );
-    let wdinner = new whatsapplunch({
+    let wlunch = new whatsapplunch({
       name: textUser,
       foodChoice: text,
     });
-    await wdinner.save();
+    await wlunch.save();
     models.push(model);
   } else if (text == "lunch-non-veg") {
     let model = MessageTemplateForFood(
       `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Lunch*_. We will add it to our menu for you!`,
       number
     );
+    let wlunch = new whatsapplunch({
+      name: textUser,
+      foodChoice: text,
+    });
+    await wlunch.save();
 
     models.push(model);
   } else if (text == "dinner-veg") {
@@ -45,6 +51,11 @@ const Process = async (textUser, text, number) => {
       `Thank you ${textUser} for choosing a vegetarian dish for _*Dinner*_. We will add it to our menu for you! `,
       number
     );
+    let wdinner = new whatsappdinner({
+      name: textUser,
+      foodChoice: text,
+    });
+    await wdinner.save();
 
     models.push(model);
   } else if (text == "dinner-non-veg") {
@@ -52,6 +63,11 @@ const Process = async (textUser, text, number) => {
       `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Dinner*_. We will add it to our menu for you!`,
       number
     );
+    let wdinner = new whatsappdinner({
+      name: textUser,
+      foodChoice: text,
+    });
+    await wdinner.save();
     models.push(model);
   } else {
     let model = MessageText(
