@@ -24,28 +24,28 @@ const Process = (textUser, text, number) => {
     let model1 = MessageTemplateDinner(text, dinner);
     models.push(model);
     models1.push(model1);
-  } else if (text == "lunch-veg") {
+  } else if (text == +"lunch-veg") {
     let model = MessageTemplateForVegL(
       `Thank you ${textUser} for choosing a vegetarian dish for _*Lunch*_. We will add it to our menu for you! `,
       number
     );
 
     models.push(model);
-  } else if (text == "lunch-non-veg") {
+  } else if (text === "lunch-non-veg") {
     let model = MessageTemplateForNonVegL(
       `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Lunch*_. We will add it to our menu for you!`,
       number
     );
 
     models.push(model);
-  } else if (text == "dinner-veg") {
+  } else if (text === "dinner-veg") {
     let model = MessageTemplateForVegD(
       `Thank you ${textUser} for choosing a vegetarian dish for _*Dinner*_. We will add it to our menu for you! `,
       number
     );
 
     models1.push(model);
-  } else if (text == "dinner-non-veg") {
+  } else if (text === "dinner-non-veg") {
     let model = MessageTemplateForNonVegD(
       `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Dinner*_. We will add it to our menu for you!`,
       number
