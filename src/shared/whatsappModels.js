@@ -88,7 +88,7 @@ const MessageTemplateDinner = (text, number) => {
   });
   return data;
 };
-const MessageTemplateForVeg = (text, number) => {
+const MessageTemplateForVegL = (text, number) => {
   const data = JSON.stringify({
     messaging_product: "whatsapp",
     recipient_type: "individual",
@@ -100,7 +100,31 @@ const MessageTemplateForVeg = (text, number) => {
   });
   return data;
 };
-const MessageTemplateForNonVeg = (text, number) => {
+const MessageTemplateForNonVegL = (text, number) => {
+  const data = JSON.stringify({
+    messaging_product: "whatsapp",
+    recipient_type: "individual",
+    to: number,
+    type: "text",
+    text: {
+      body: text,
+    },
+  });
+  return data;
+};
+const MessageTemplateForVegD = (text, number) => {
+  const data = JSON.stringify({
+    messaging_product: "whatsapp",
+    recipient_type: "individual",
+    to: number,
+    type: "text",
+    text: {
+      body: text,
+    },
+  });
+  return data;
+};
+const MessageTemplateForNonVegD = (text, number) => {
   const data = JSON.stringify({
     messaging_product: "whatsapp",
     recipient_type: "individual",
@@ -117,6 +141,8 @@ module.exports = {
   MessageText,
   MessageTemplateLunch,
   MessageTemplateDinner,
-  MessageTemplateForVeg,
-  MessageTemplateForNonVeg,
+  MessageTemplateForVegL,
+  MessageTemplateForNonVegL,
+  MessageTemplateForVegD,
+  MessageTemplateForNonVegD,
 };
