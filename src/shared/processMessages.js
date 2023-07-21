@@ -10,8 +10,7 @@ const {
   MessageTemplate,
   MessageTemplateForFood,
 } = require("./whatsappModels");
-const whatsapplunch = require("../model/WmessageSchemaL");
-const Process = async (textUser, text, number, name) => {
+const Process = async (textUser, text, number) => {
   text = text.toLowerCase();
   console.log(text);
   let models = [];
@@ -64,7 +63,7 @@ const Process = async (textUser, text, number, name) => {
     //   models.push(model);
   }
   models.forEach((model) => sendMessageWhatsapp(model));
-  models1.forEach((model) => sendMessageWhatsapp1(model));
+  // models1.forEach((model) => sendMessageWhatsapp1(model));
 };
 
 module.exports = { Process };

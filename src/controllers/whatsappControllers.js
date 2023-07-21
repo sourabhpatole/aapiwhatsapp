@@ -46,18 +46,17 @@ const ReceiveMessages = async (req, res) => {
       if (text != "") {
         processMessage.Process(name, text, number);
         if (text == "Lunch-Non-veg" || text == "Lunch-Veg") {
-          let sourabh = new whatsapplunch({
-            name,
-            foodChoice: text,
-          });
-          await sourabh.save();
+          // let sourabh = new whatsapplunch({
+          //   name,
+          //   foodChoice: text,
+          // });
+          // await sourabh.save();
         } else if (text == "Dinner-Veg" || text == "Dinner-Non-Veg") {
-          let wdinner = new whatsappdinner({
-            name,
-            foodChoice: text,
-          });
-          await wdinner.save();
-          return;
+          // let wdinner = new whatsappdinner({
+          //   name,
+          //   foodChoice: text,
+          // });
+          // await wdinner.save();
         }
         myArray.push(sourabh, wdinner);
         // myArray.push(wdinner);
