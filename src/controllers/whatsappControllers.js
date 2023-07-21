@@ -51,7 +51,7 @@ const ReceiveMessages = async (req, res) => {
             foodChoice: text,
           });
           await sourabh.save();
-          return;
+          stop;
         } else if (text == "Dinner-Veg" || text == "Dinner-Non-Veg") {
           let wdinner = new whatsappdinner({
             name,
