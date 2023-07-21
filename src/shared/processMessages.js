@@ -11,7 +11,7 @@ const {
   MessageTemplateForFood,
 } = require("./whatsappModels");
 const whatsapplunch = require("../model/WmessageSchemaL");
-const Process = async (textUser, text, number, name) => {
+const Process = async (textUser, text, number) => {
   text = text.toLowerCase();
   console.log(text);
   let models = [];
@@ -28,7 +28,7 @@ const Process = async (textUser, text, number, name) => {
       number
     );
     let wdinner = new whatsapplunch({
-      name,
+      name: textUser,
       foodChoice: text,
     });
     await wdinner.save();
