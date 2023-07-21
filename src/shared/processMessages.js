@@ -20,8 +20,8 @@ const Process = (textUser, text, number) => {
   if (text.includes("hi")) {
     let model = MessageTemplateLunch(text, number);
 
-    let model2 = MessageTemplateDinner(text, dinner);
-    models.push(model, model2);
+    // let model2 = MessageTemplateDinner(text, dinner);
+    models.push(model);
   } else if (text == "lunch-veg") {
     let model = MessageTemplateForVegL(
       `Thank you ${textUser} for choosing a vegetarian dish for _*Lunch*_. We will add it to our menu for you! `,
