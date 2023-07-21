@@ -71,14 +71,14 @@ const MessageTemplateDinner = (text, number) => {
           {
             type: "reply",
             reply: {
-              id: "000",
+              id: "002",
               title: "Veg",
             },
           },
           {
             type: "reply",
             reply: {
-              id: "001",
+              id: "003",
               title: "Non-veg",
             },
           },

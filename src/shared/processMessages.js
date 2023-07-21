@@ -19,7 +19,7 @@ const Process = (textUser, text, number) => {
   let models = [];
   if (text.includes("hi")) {
     let model = MessageTemplateLunch(text, number);
-    let model2 = MessageTemplateDinner(text, dinner);
+    // let model2 = MessageTemplateDinner(text, dinner);
     models.push(model);
   } else if (text == "lunch-veg") {
     let model = MessageTemplateForVegL(
