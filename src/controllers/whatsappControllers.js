@@ -58,8 +58,7 @@ const ReceiveMessages = async (req, res) => {
           });
           await wdinner.save();
         }
-        return;
-        myArray.push(sourabh);
+        myArray.push(sourabh, wdinner);
         // myArray.push(wdinner);
         // myConsole.log("my name is", name);
         myConsole.log(myArray);
@@ -100,4 +99,4 @@ const getName = (dname) => {
   return display;
 };
 
-module.exports = { VerifyToken, ReceiveMessages };
+module.exports = { VerifyToken, ReceiveMessages, getMessage };

@@ -139,8 +139,8 @@ const MessageTemplateForNonVegD = (text, number) => {
 
 module.exports = {
   MessageText,
-  MessageTemplateLunch,
-  MessageTemplateDinner,
+  // MessageTemplateLunch,
+  // MessageTemplateDinner,
   MessageTemplateForVegL,
   MessageTemplateForNonVegL,
   MessageTemplateForVegD,
