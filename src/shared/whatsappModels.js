@@ -25,10 +25,12 @@ const MessageTemplate = (text, number, textUser) => {
     messaging_product: "whatsapp",
     recipient_type: "individual",
     to: number,
-    type: "text",
-    text: {
-      preview_url: false,
-      body: `Hello *${textUser}*,`,
+    type: "interactive",
+    interactive: {
+      type: "button",
+      body: {
+        text: `Hi *${textUser}*, `,
+      },
     },
   });
   return data;
