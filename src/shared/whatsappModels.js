@@ -28,7 +28,7 @@ const MessageTemplate = (text, number, textUser) => {
     type: "text",
     text: {
       preview_url: false,
-      body: `Hi *${textUser}*,`,
+      body: `Hello *${textUser}*,`,
     },
   });
   return data;
