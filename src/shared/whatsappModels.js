@@ -20,7 +20,7 @@ const MessageText = (textResponse, number) => {
   });
   return data;
 };
-const MessageTemplate = (text, number) => {
+const MessageTemplate = (text, number, textUser) => {
   const data = JSON.stringify({
     messaging_product: "whatsapp",
     recipient_type: "individual",
@@ -29,7 +29,7 @@ const MessageTemplate = (text, number) => {
     interactive: {
       type: "button",
       body: {
-        text: text,
+        text: `Hi *${textUser}*, `,
       },
       action: {
         buttons: [

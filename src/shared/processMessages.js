@@ -18,7 +18,7 @@ const Process = async (textUser, text, number) => {
   let models = [];
   // let models1 = [];
   if (text.includes("hi")) {
-    let model = MessageTemplate(text, number);
+    let model = MessageTemplate(text, number, textUser);
 
     // let model1 = MessageTemplateDinner(text, number);
     models.push(model);
