@@ -26,11 +26,9 @@ const MessageTemplate = (text, number, textUser) => {
     recipient_type: "individual",
     to: number,
     type: "text",
-    interactive: {
-      type: "button",
-      body: {
-        text: `Hi *${textUser}*, `,
-      },
+    text: {
+      preview_url: false,
+      body: `Hi *${textUser}*,`,
     },
   });
   return data;
