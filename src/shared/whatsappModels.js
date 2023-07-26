@@ -27,7 +27,7 @@ const MessageTemplate = (text, number, textUser) => {
     to: number,
     type: "interactive",
     interactive: {
-      type: "button",
+      type: "text",
       body: {
         text: `Hi *${textUser}*, `,
       },
