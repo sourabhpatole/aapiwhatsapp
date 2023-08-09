@@ -4,7 +4,7 @@ const holiday = day.getDay();
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let newDay;
 if (dayNames[holiday] === "Thu") {
-  newDay = new Date(Date.now() + 3600 * 1000 * 72);
+  newDay = new Date(Date.now() + 3600 * 1000 * 96);
 }
 
 const LunchWhatsappSchema = new mongoose.Schema(
