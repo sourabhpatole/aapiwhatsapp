@@ -11,7 +11,7 @@ const LunchWhatsappSchema = new mongoose.Schema(
     },
     messageDate: {
       type: "String",
-      default: date.setDate(date.getDate() + 1);,
+      default: date.setDate(date.getDate() + 1),
     },
   },
   { timestamps: true }
