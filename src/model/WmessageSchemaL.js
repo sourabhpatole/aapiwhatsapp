@@ -9,7 +9,7 @@ const LunchWhatsappSchema = new mongoose.Schema(
     },
     messageDate: {
       type: "String",
-      default: "sourabh",
+      default: new Date(Date.now() + 3600 * 1000 * 24),
     },
   },
   { timestamps: true }
