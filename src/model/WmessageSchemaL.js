@@ -6,7 +6,7 @@ let newDay;
 if (dayNames[holiday] === "Thu") {
   newDay = new Date(Date.now() + 3600 * 1000 * 72);
 }
-els;
+
 const LunchWhatsappSchema = new mongoose.Schema(
   {
     name: {
