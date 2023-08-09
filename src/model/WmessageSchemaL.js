@@ -3,7 +3,7 @@ const day = new Date(Date.now() + 3600 * 1000 * 24);
 const holiday = day.getDay();
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let newDay;
-if (dayNames[holiday] === "Fri") {
+if (dayNames[holiday] === "Thu") {
   newDay = new Date(Date.now() + 3600 * 1000 * 96);
 } else {
   newDay = day;
