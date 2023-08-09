@@ -3,8 +3,10 @@ const day = new Date(Date.now() + 3600 * 1000 * 24);
 const holiday = day.getDay();
 const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let newDay;
-if (dayNames[holiday] === "Thu") {
+if (dayNames[holiday] === "Wed") {
   newDay = new Date(Date.now() + 3600 * 1000 * 96);
+} else {
+  newDay = day;
 }
 
 const LunchWhatsappSchema = new mongoose.Schema(
