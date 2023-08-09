@@ -9,9 +9,7 @@ const LunchWhatsappSchema = new mongoose.Schema(
     },
     messageDate: {
       type: "String",
-      default: Date(
-        Date.now().toLocaleString("en-Us", { timeZone: "Asia/Kolkata" })
-      ),
+      default: "sourabh",
     },
   },
   { timestamps: true }
