@@ -1,4 +1,11 @@
 const mongoose = require("mongoose");
+const currentDate = new Date(Date.now() + 3600 * 1000 * 24);
+const day = currentDate.getDay();
+const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const date = "";
+if (dayNames[day] == "Thu") {
+  date = new Date(Date.now() + 3600 * 1000 * 48);
+}
 const LunchWhatsappSchema = new mongoose.Schema(
   {
     name: {
@@ -9,7 +16,7 @@ const LunchWhatsappSchema = new mongoose.Schema(
     },
     messageDate: {
       type: "String",
-      default: new Date(Date.now() + 3600 * 1000 * 48),
+      default: date,
     },
   },
   { timestamps: true }
