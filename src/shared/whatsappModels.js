@@ -119,9 +119,11 @@ const MessageTemplateFeedback = (text, number) => {
     messaging_product: "whatsapp",
     recipient_type: "interactive",
     to: number,
-    type: "text",
-    text: {
-      body: "Thanks for Giving valuable feedback",
+    type: "interactive",
+    interactive: {
+      body: {
+        text: "Thanks for Giving valuable feedback",
+      },
     },
   });
   return data;
