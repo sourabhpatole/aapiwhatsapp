@@ -117,7 +117,7 @@ const MessageTemplateForFood = (text, number) => {
 const MessageTemplateFeedback = (text, number) => {
   const data = JSON.stringify({
     messaging_product: "whatsapp",
-    recipient_type: "individual",
+    recipient_type: "interactive",
     to: number,
     type: "text",
     text: {
