@@ -114,9 +114,21 @@ const MessageTemplateForFood = (text, number) => {
 //   });
 //   return data;
 // };
-
+const MessageTemplateFeedback = (text, number) => {
+  const data = JSON.stringify({
+    messaging_product: "whatsapp",
+    recipient_type: "individual",
+    to: number,
+    type: "text",
+    text: {
+      body: "Thanks for Giving valuable feedback",
+    },
+  });
+  return data;
+};
 module.exports = {
   MessageText,
   MessageTemplate,
   MessageTemplateForFood,
+  MessageTemplateFeedback,
 };

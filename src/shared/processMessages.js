@@ -9,6 +9,7 @@ const {
 
   MessageTemplate,
   MessageTemplateForFood,
+  MessageTemplateFeedback,
 } = require("./whatsappModels");
 const whatsapplunch = require("../model/WmessageSchemaL");
 const whatsappdinner = require("../model/WmessageSchemaD");
@@ -68,6 +69,9 @@ const Process = async (textUser, text, number) => {
       foodChoice: text,
     });
     await wdinner.save();
+    models.push(model);
+  } else if (text == "neutral") {
+    let model = MessageTemplateFeedback(number);
     models.push(model);
   } else {
     let model = MessageText(
