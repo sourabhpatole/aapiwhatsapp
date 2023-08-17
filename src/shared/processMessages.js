@@ -72,7 +72,7 @@ const Process = async (textUser, text, number) => {
     models.push(model);
   } else if (text == "neutral") {
     let model = MessageTemplateFeedback(
-      `${textUser}, Thanks for giving feedback`,
+      `${textUser}, Thanks for giving feedback ${text}`,
       number
     );
     models.push(model);
