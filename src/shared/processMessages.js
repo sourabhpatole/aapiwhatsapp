@@ -70,9 +70,9 @@ const Process = async (textUser, text, number) => {
     });
     await wdinner.save();
     models.push(model);
-  } else if (text == "very-satisfied") {
+  } else if (text == "very-unsatisfied") {
     let model = MessageTemplateFeedback(
-      `${textUser}, Thanks for giving feedback *Very satisfied*`,
+      `${textUser}, Thanks for giving feedback *Very Unsatisfied*`,
       number
     );
     models.push(model);
