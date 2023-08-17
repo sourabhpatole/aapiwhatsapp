@@ -70,15 +70,39 @@ const Process = async (textUser, text, number) => {
     });
     await wdinner.save();
     models.push(model);
+  } else if (text == "very satisfied") {
+    let model = MessageTemplateFeedback(
+      `${textUser}, Thanks for giving feedback *Very satisfied*`,
+      number
+    );
+    models.push(model);
+  } else if (text == "unsatisfied") {
+    let model = MessageTemplateFeedback(
+      `${textUser}, Thanks for giving feedback *Unsatisfied*`,
+      number
+    );
+    models.push(model);
   } else if (text == "neutral") {
     let model = MessageTemplateFeedback(
       `${textUser}, Thanks for giving feedback *Neutral*`,
       number
     );
     models.push(model);
+  } else if (text == "satisfied") {
+    let model = MessageTemplateFeedback(
+      `${textUser}, Thanks for giving feedback *Satisfied*`,
+      number
+    );
+    models.push(model);
+  } else if (text == "very satisfied") {
+    let model = MessageTemplateFeedback(
+      `${textUser}, Thanks for giving feedback *Very satisfied*`,
+      number
+    );
+    models.push(model);
   } else {
     let model = MessageText(
-      `Thank you for your valuable time ${textUser}! If you have any feedback or suggestions on how we can improve our service, please don’t hesitate to let us know. We look forward to serving you again soon!`,
+      `Thank you for your valuable time ${textUser}!\n We look forward to serving you again soon!`,
       number
     );
 
