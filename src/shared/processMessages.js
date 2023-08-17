@@ -13,6 +13,7 @@ const {
 } = require("./whatsappModels");
 const whatsapplunch = require("../model/WmessageSchemaL");
 const whatsappdinner = require("../model/WmessageSchemaD");
+const FeedbackSchema = require("../model/FeedbackSchema");
 const Process = async (textUser, text, number) => {
   text = text.toLowerCase();
   console.log(text);
@@ -75,6 +76,10 @@ const Process = async (textUser, text, number) => {
       `${textUser}, Thanks for giving feedback *Very Unsatisfied*`,
       number
     );
+    let feedback = new FeedbackSchema({
+      rating: -2,
+    });
+    await feedback.save();
     models.push(model);
   } else if (text == "unsatisfied") {
     let model = MessageTemplateFeedback(
