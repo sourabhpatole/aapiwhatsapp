@@ -44,6 +44,7 @@ const sendMessageWhatsapp1 = (data) => {
   req.on("error", (error) => {
     console.error(error);
   });
+  console.log(data);
   req.write(data);
   req.end();
 };
