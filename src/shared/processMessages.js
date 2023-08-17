@@ -86,24 +86,40 @@ const Process = async (textUser, text, number) => {
       `${textUser}, Thanks for giving feedback *Unsatisfied*`,
       number
     );
+    let feedback = new whatsappfeedback({
+      rating: -1,
+    });
+    await feedback.save();
     models.push(model);
   } else if (text == "neutral") {
     let model = MessageTemplateFeedback(
       `${textUser}, Thanks for giving feedback *Neutral*`,
       number
     );
+    let feedback = new whatsappfeedback({
+      rating: 0,
+    });
+    await feedback.save();
     models.push(model);
   } else if (text == "satisfied") {
     let model = MessageTemplateFeedback(
       `${textUser}, Thanks for giving feedback *Satisfied*`,
       number
     );
+    let feedback = new whatsappfeedback({
+      rating: 1,
+    });
+    await feedback.save();
     models.push(model);
   } else if (text == "very-satisfied") {
     let model = MessageTemplateFeedback(
       `${textUser}, Thanks for giving feedback *Very satisfied*`,
       number
     );
+    let feedback = new whatsappfeedback({
+      rating: 2,
+    });
+    await feedback.save();
     models.push(model);
   } else {
     let model = MessageText(
