@@ -5,4 +5,6 @@ const FeedbackSchema = new mongoose.Schema({
   },
 });
 
-module.exports = FeedbackSchema;
+const whatsappfeedback = new mongoose.model("whatsappfeedback", FeedbackSchema);
+
+module.exports = whatsappfeedback;
