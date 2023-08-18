@@ -117,6 +117,7 @@ const Process = async (textUser, text, number) => {
       number
     );
     let feedback = new whatsappfeedback({
+      name: textUser,
       rating: 2,
     });
     await feedback.save();
