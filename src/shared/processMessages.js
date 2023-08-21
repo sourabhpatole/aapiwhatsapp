@@ -129,7 +129,7 @@ const Process = async (textUser, text, number) => {
     models.push(model);
   } else if (text == "dinner-very-unsatisfied") {
     let model = MessageTemplateFeedback(
-      `${textUser}, Thanks for giving feedback *dinner Very Unsatisfied*`,
+      `${textUser}, Thanks for giving feedback *Dinner Very Unsatisfied*`,
       number
     );
     let feedback = new whatsappfeedbackdinner({
@@ -140,7 +140,7 @@ const Process = async (textUser, text, number) => {
     models.push(model);
   } else if (text == "dinner-unsatisfied") {
     let model = MessageTemplateFeedback(
-      `${textUser}, Thanks for giving feedback *dinner Unsatisfied*`,
+      `${textUser}, Thanks for giving feedback *Dinner Unsatisfied*`,
       number
     );
     let feedback = new whatsappfeedbackdinner({
@@ -151,7 +151,7 @@ const Process = async (textUser, text, number) => {
     models.push(model);
   } else if (text == "dinner-neutral") {
     let model = MessageTemplateFeedback(
-      `${textUser}, Thanks for giving feedback *dinner Neutral*`,
+      `${textUser}, Thanks for giving feedback *Dinner Neutral*`,
       number
     );
     let feedback = new whatsappfeedbackdinner({
@@ -162,7 +162,7 @@ const Process = async (textUser, text, number) => {
     models.push(model);
   } else if (text == "dinner-satisfied") {
     let model = MessageTemplateFeedback(
-      `${textUser}, Thanks for giving feedback *dinner Satisfied*`,
+      `${textUser}, Thanks for giving feedback *Dinner Satisfied*`,
       number
     );
     let feedback = new whatsappfeedbackdinner({
@@ -173,7 +173,7 @@ const Process = async (textUser, text, number) => {
     models.push(model);
   } else if (text == "dinner-very-satisfied") {
     let model = MessageTemplateFeedback(
-      `${textUser}, Thanks for giving feedback *dinner Very satisfied*`,
+      `${textUser}, Thanks for giving feedback *Dinner Very satisfied*`,
       number
     );
     let feedback = new whatsappfeedbackdinner({
