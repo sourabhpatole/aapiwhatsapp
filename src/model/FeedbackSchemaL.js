@@ -12,6 +12,9 @@ const FeedbackSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const whatsappfeedback = new mongoose.model("whatsappfeedback", FeedbackSchema);
+const whatsappfeedbacklunch = new mongoose.model(
+  "whatsappfeedbacklunch",
+  FeedbackSchema
+);
 
-module.exports = whatsappfeedback;
+module.exports = whatsappfeedbacklunch;

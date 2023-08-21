@@ -13,7 +13,8 @@ const {
 } = require("./whatsappModels");
 const whatsapplunch = require("../model/WmessageSchemaL");
 const whatsappdinner = require("../model/WmessageSchemaD");
-const whatsappfeedback = require("../model/FeedbackSchema");
+const whatsappfeedbacklunch = require("../model/FeedbackSchemaL");
+const whatsappfeedbackdinner = require("../model/FeedbackSchemaD");
 const Process = async (textUser, text, number) => {
   text = text.toLowerCase();
   console.log(text);
@@ -71,56 +72,111 @@ const Process = async (textUser, text, number) => {
     });
     await wdinner.save();
     models.push(model);
-  } else if (text == "very-unsatisfied") {
+  } else if (text == "lunch-very-unsatisfied") {
     let model = MessageTemplateFeedback(
-      `${textUser}, Thanks for giving feedback *Very Unsatisfied*`,
+      `${textUser}, Thanks for giving feedback *lunch Very Unsatisfied*`,
       number
     );
-    let feedback = new whatsappfeedback({
+    let feedback = new whatsappfeedbacklunch({
       name: textUser,
       rating: -2,
     });
     await feedback.save();
     models.push(model);
-  } else if (text == "unsatisfied") {
+  } else if (text == "lunch-unsatisfied") {
     let model = MessageTemplateFeedback(
-      `${textUser}, Thanks for giving feedback *Unsatisfied*`,
+      `${textUser}, Thanks for giving feedback *lunch Unsatisfied*`,
       number
     );
-    let feedback = new whatsappfeedback({
+    let feedback = new whatsappfeedbacklunch({
       name: textUser,
       rating: -1,
     });
     await feedback.save();
     models.push(model);
-  } else if (text == "neutral") {
+  } else if (text == "lunch-neutral") {
     let model = MessageTemplateFeedback(
-      `${textUser}, Thanks for giving feedback *Neutral*`,
+      `${textUser}, Thanks for giving feedback *lunch Neutral*`,
       number
     );
-    let feedback = new whatsappfeedback({
+    let feedback = new whatsappfeedbacklunch({
       name: textUser,
       rating: 0,
     });
     await feedback.save();
     models.push(model);
-  } else if (text == "satisfied") {
+  } else if (text == "lunch-satisfied") {
     let model = MessageTemplateFeedback(
-      `${textUser}, Thanks for giving feedback *Satisfied*`,
+      `${textUser}, Thanks for giving feedback *lunch Satisfied*`,
       number
     );
-    let feedback = new whatsappfeedback({
+    let feedback = new whatsappfeedbacklunch({
       name: textUser,
       rating: 1,
     });
     await feedback.save();
     models.push(model);
-  } else if (text == "very-satisfied") {
+  } else if (text == "lunch-very-satisfied") {
     let model = MessageTemplateFeedback(
-      `${textUser}, Thanks for giving feedback *Very satisfied*`,
+      `${textUser}, Thanks for giving feedback *lunch Very satisfied*`,
       number
     );
-    let feedback = new whatsappfeedback({
+    let feedback = new whatsappfeedbacklunch({
+      name: textUser,
+      rating: 2,
+    });
+    await feedback.save();
+    models.push(model);
+  } else if (text == "dinner-very-unsatisfied") {
+    let model = MessageTemplateFeedback(
+      `${textUser}, Thanks for giving feedback *dinner Very Unsatisfied*`,
+      number
+    );
+    let feedback = new whatsappfeedbackdinner({
+      name: textUser,
+      rating: -2,
+    });
+    await feedback.save();
+    models.push(model);
+  } else if (text == "dinner-unsatisfied") {
+    let model = MessageTemplateFeedback(
+      `${textUser}, Thanks for giving feedback *dinner Unsatisfied*`,
+      number
+    );
+    let feedback = new whatsappfeedbackdinner({
+      name: textUser,
+      rating: -1,
+    });
+    await feedback.save();
+    models.push(model);
+  } else if (text == "dinner-neutral") {
+    let model = MessageTemplateFeedback(
+      `${textUser}, Thanks for giving feedback *dinner Neutral*`,
+      number
+    );
+    let feedback = new whatsappfeedbackdinner({
+      name: textUser,
+      rating: 0,
+    });
+    await feedback.save();
+    models.push(model);
+  } else if (text == "dinner-satisfied") {
+    let model = MessageTemplateFeedback(
+      `${textUser}, Thanks for giving feedback *dinner Satisfied*`,
+      number
+    );
+    let feedback = new whatsappfeedbackdinner({
+      name: textUser,
+      rating: 1,
+    });
+    await feedback.save();
+    models.push(model);
+  } else if (text == "dinner-very-satisfied") {
+    let model = MessageTemplateFeedback(
+      `${textUser}, Thanks for giving feedback *dinner Very satisfied*`,
+      number
+    );
+    let feedback = new whatsappfeedbackdinner({
       name: textUser,
       rating: 2,
     });
