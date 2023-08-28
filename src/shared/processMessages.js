@@ -36,51 +36,69 @@ const Process = async (textUser, text, number) => {
     }
     // models1.push(model1);
   } else if (text == "lunch-veg") {
-    let model = MessageTemplateForFood(
-      `Thank you ${textUser} for choosing a vegetarian dish for _*Lunch*_. We will add it to our menu for you! `,
-      number
-    );
-    let wlunch = new whatsapplunch({
-      name: textUser,
-      foodChoice: text,
-    });
-    await wlunch.save();
-    models.push(model);
+    if (day >= 1 && day <= 5 && hours <= 21) {
+      let model = MessageTemplateForFood(
+        `Thank you ${textUser} for choosing a vegetarian dish for _*Lunch*_. We will add it to our menu for you! `,
+        number
+      );
+      let wlunch = new whatsapplunch({
+        name: textUser,
+        foodChoice: text,
+      });
+      await wlunch.save();
+      models.push(model);
+    } else {
+      let model = MessageTimeOver(text, number, textUser);
+      models.push(model);
+    }
   } else if (text == "lunch-non-veg") {
-    let model = MessageTemplateForFood(
-      `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Lunch*_. We will add it to our menu for you!`,
-      number
-    );
-    let wlunch = new whatsapplunch({
-      name: textUser,
-      foodChoice: text,
-    });
-    await wlunch.save();
-
-    models.push(model);
+    if (day >= 1 && day <= 5 && hours <= 21) {
+      let model = MessageTemplateForFood(
+        `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Lunch*_. We will add it to our menu for you!`,
+        number
+      );
+      let wlunch = new whatsapplunch({
+        name: textUser,
+        foodChoice: text,
+      });
+      await wlunch.save();
+      models.push(model);
+    } else {
+      let model = MessageTimeOver(text, number, textUser);
+      models.push(model);
+    }
   } else if (text == "dinner-veg") {
-    let model = MessageTemplateForFood(
-      `Thank you ${textUser} for choosing a vegetarian dish for _*Dinner*_. We will add it to our menu for you! `,
-      number
-    );
-    let wdinner = new whatsappdinner({
-      name: textUser,
-      foodChoice: text,
-    });
-    await wdinner.save();
-
-    models.push(model);
+    if (day >= 1 && day <= 5 && hours <= 3) {
+      let model = MessageTemplateForFood(
+        `Thank you ${textUser} for choosing a vegetarian dish for _*Dinner*_. We will add it to our menu for you! `,
+        number
+      );
+      let wdinner = new whatsappdinner({
+        name: textUser,
+        foodChoice: text,
+      });
+      await wdinner.save();
+      models.push(model);
+    } else {
+      let model = MessageTimeOver(text, number, textUser);
+      models.push(model);
+    }
   } else if (text == "dinner-non-veg") {
-    let model = MessageTemplateForFood(
-      `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Dinner*_. We will add it to our menu for you!`,
-      number
-    );
-    let wdinner = new whatsappdinner({
-      name: textUser,
-      foodChoice: text,
-    });
-    await wdinner.save();
-    models.push(model);
+    if (day >= 1 && day <= 5 && hours <= 3) {
+      let model = MessageTemplateForFood(
+        `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Dinner*_. We will add it to our menu for you!`,
+        number
+      );
+      let wdinner = new whatsappdinner({
+        name: textUser,
+        foodChoice: text,
+      });
+      await wdinner.save();
+      models.push(model);
+    } else {
+      let model = MessageTimeOver(text, number, textUser);
+      models.push(model);
+    }
   } else if (text == "lunch-very-unsatisfied") {
     let model = MessageTemplateFeedback(
       `${textUser}, Thanks for giving feedback *lunch Very Unsatisfied*`,
@@ -88,7 +106,7 @@ const Process = async (textUser, text, number) => {
     );
     let feedback = new whatsappfeedbacklunch({
       name: textUser,
-      rating: -2,
+      rating: 1,
     });
     await feedback.save();
     models.push(model);
@@ -99,7 +117,7 @@ const Process = async (textUser, text, number) => {
     );
     let feedback = new whatsappfeedbacklunch({
       name: textUser,
-      rating: -1,
+      rating: 2,
     });
     await feedback.save();
     models.push(model);
@@ -110,7 +128,7 @@ const Process = async (textUser, text, number) => {
     );
     let feedback = new whatsappfeedbacklunch({
       name: textUser,
-      rating: 0,
+      rating: 3,
     });
     await feedback.save();
     models.push(model);
@@ -121,7 +139,7 @@ const Process = async (textUser, text, number) => {
     );
     let feedback = new whatsappfeedbacklunch({
       name: textUser,
-      rating: 1,
+      rating: 4,
     });
     await feedback.save();
     models.push(model);
@@ -132,7 +150,7 @@ const Process = async (textUser, text, number) => {
     );
     let feedback = new whatsappfeedbacklunch({
       name: textUser,
-      rating: 2,
+      rating: 5,
     });
     await feedback.save();
     models.push(model);
@@ -143,7 +161,7 @@ const Process = async (textUser, text, number) => {
     );
     let feedback = new whatsappfeedbackdinner({
       name: textUser,
-      rating: -2,
+      rating: 1,
     });
     await feedback.save();
     models.push(model);
@@ -154,7 +172,7 @@ const Process = async (textUser, text, number) => {
     );
     let feedback = new whatsappfeedbackdinner({
       name: textUser,
-      rating: -1,
+      rating: 2,
     });
     await feedback.save();
     models.push(model);
@@ -165,7 +183,7 @@ const Process = async (textUser, text, number) => {
     );
     let feedback = new whatsappfeedbackdinner({
       name: textUser,
-      rating: 0,
+      rating: 3,
     });
     await feedback.save();
     models.push(model);
@@ -176,7 +194,7 @@ const Process = async (textUser, text, number) => {
     );
     let feedback = new whatsappfeedbackdinner({
       name: textUser,
-      rating: 1,
+      rating: 4,
     });
     await feedback.save();
     models.push(model);
@@ -187,7 +205,7 @@ const Process = async (textUser, text, number) => {
     );
     let feedback = new whatsappfeedbackdinner({
       name: textUser,
-      rating: 2,
+      rating: 5,
     });
     await feedback.save();
     models.push(model);
