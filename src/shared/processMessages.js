@@ -19,6 +19,8 @@ let d = new Date();
 let day = d.getDay();
 let hours = d.getHours();
 let minutes = d.getMinutes();
+console.log(d);
+console.log(hours);
 const Process = async (textUser, text, number) => {
   text = text.toLowerCase();
   console.log(text);
@@ -84,7 +86,7 @@ const Process = async (textUser, text, number) => {
       models.push(model);
     }
   } else if (text == "dinner-non-veg") {
-    if (!(day >= 1 || day <= 5) && (hours <= 14 || hours >= 8)) {
+    if (!(day >= 1 || day <= 5) && (hours <= 18 || hours >= 8)) {
       let model = MessageTemplateForFood(
         `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Dinner*_. We will add it to our menu for you!`,
         number
