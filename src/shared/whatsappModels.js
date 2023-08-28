@@ -39,7 +39,7 @@ const MessageTimeOver = (text, number, textUser) => {
     to: number,
     type: "text",
     text: {
-      body: `Hi *${textUser}* Your response time is over please contact Admin, `,
+      body: `Hi *${textUser}* \nYour response time is over please contact Admin, `,
     },
   });
   return data;
