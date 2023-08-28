@@ -32,6 +32,18 @@ const MessageTemplate = (text, number, textUser) => {
   });
   return data;
 };
+const MessageTimeOver = (text, number, textUser) => {
+  const data = JSON.stringify({
+    messaging_product: "whatsapp",
+    recipient_type: "individual",
+    to: number,
+    type: "text",
+    text: {
+      body: `Hi *${textUser}* Your response time is over please contact Admin, `,
+    },
+  });
+  return data;
+};
 // const MessageTemplateDinner = (text, number) => {
 //   const data = JSON.stringify({
 //     messaging_product: "whatsapp",
@@ -131,4 +143,5 @@ module.exports = {
   MessageTemplate,
   MessageTemplateForFood,
   MessageTemplateFeedback,
+  MessageTimeOver,
 };

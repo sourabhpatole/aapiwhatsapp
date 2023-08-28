@@ -6,25 +6,34 @@ const fs = require("fs");
 const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 const {
   MessageText,
-
   MessageTemplate,
   MessageTemplateForFood,
   MessageTemplateFeedback,
+  MessageTimeOver,
 } = require("./whatsappModels");
 const whatsapplunch = require("../model/WmessageSchemaL");
 const whatsappdinner = require("../model/WmessageSchemaD");
 const whatsappfeedbacklunch = require("../model/FeedbackSchemaL");
 const whatsappfeedbackdinner = require("../model/FeedbackSchemaD");
+let d = new Date();
+let day = d.getDay();
+let hours = d.getHours();
+let minutes = d.getMinutes();
 const Process = async (textUser, text, number) => {
   text = text.toLowerCase();
   console.log(text);
   let models = [];
   // let models1 = [];
   if (text.includes("hi")) {
-    let model = MessageTemplate(text, number, textUser);
+    if (day === 5 && hours >= 11 && hours < 12) {
+      let model = MessageTemplate(text, number, textUser);
 
-    // let model1 = MessageTemplateDinner(text, number);
-    models.push(model);
+      // let model1 = MessageTemplateDinner(text, number);
+      models.push(model);
+    } else {
+      let model = MessageTimeOver(text, number, textUser);
+      models.push(model);
+    }
     // models1.push(model1);
   } else if (text == "lunch-veg") {
     let model = MessageTemplateForFood(
