@@ -25,7 +25,7 @@ const Process = async (textUser, text, number) => {
   let models = [];
   // let models1 = [];
   if (text.includes("hi")) {
-    if (day === "Monday") {
+    if (day >= 1 && day <= 5) {
       let model = MessageTemplate(text, number, textUser);
 
       // let model1 = MessageTemplateDinner(text, number);
