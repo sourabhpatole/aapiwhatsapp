@@ -16,11 +16,13 @@ const whatsappdinner = require("../model/WmessageSchemaD");
 const whatsappfeedbacklunch = require("../model/FeedbackSchemaL");
 const whatsappfeedbackdinner = require("../model/FeedbackSchemaD");
 let d = new Date();
-let day = d.getDay();
-let hours = d.getHours();
-let minutes = d.getMinutes();
-console.log(d);
+let currentOffset = d.getTimezoneOffset();
+let offset = 330;
+let ISTTime = new Date(d.getTime() + (offset + currentOffset) * 60000);
+let hours = ISTTime.getHours();
+let minutes = ISTTime.getMinutes();
 console.log(hours);
+console.log(minutes);
 const Process = async (textUser, text, number) => {
   text = text.toLowerCase();
   console.log(text);
@@ -38,7 +40,7 @@ const Process = async (textUser, text, number) => {
     }
     // models1.push(model1);
   } else if (text == "lunch-veg") {
-    if (day >= 1 && day <= 5 && hours <= 13 && hours <= 30) {
+    if (day >= 1 && day <= 5 && hours <= 14 && hours <= 30) {
       let model = MessageTemplateForFood(
         `Thank you ${textUser} for choosing a vegetarian dish for _*Lunch*_. We will add it to our menu for you! `,
         number
@@ -54,7 +56,7 @@ const Process = async (textUser, text, number) => {
       models.push(model);
     }
   } else if (text == "lunch-non-veg") {
-    if (day >= 1 && day <= 5 && hours <= 13 && minutes <= 30) {
+    if (day >= 1 && day <= 5 && hours <= 14 && minutes <= 30) {
       let model = MessageTemplateForFood(
         `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Lunch*_. We will add it to our menu for you!`,
         number
@@ -70,7 +72,7 @@ const Process = async (textUser, text, number) => {
       models.push(model);
     }
   } else if (text == "dinner-veg") {
-    if (day >= 1 && day <= 5 && hours <= 8 && minutes <= 30) {
+    if (day >= 1 && day <= 5 && hours <= 20 && minutes <= 30) {
       let model = MessageTemplateForFood(
         `Thank you ${textUser} for choosing a vegetarian dish for _*Dinner*_. We will add it to our menu for you! `,
         number
@@ -86,7 +88,7 @@ const Process = async (textUser, text, number) => {
       models.push(model);
     }
   } else if (text == "dinner-non-veg") {
-    if (day >= 1 && day <= 5 && hours <= 8 && minutes <= 30) {
+    if (day >= 1 && day <= 5 && hours <= 20 && minutes <= 30) {
       let model = MessageTemplateForFood(
         `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Dinner*_. We will add it to our menu for you!`,
         number
