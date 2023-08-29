@@ -38,7 +38,7 @@ const Process = async (textUser, text, number) => {
     }
     // models1.push(model1);
   } else if (text == "lunch-veg") {
-    if (day >= 1 && day <= 5 && hours <= 15 && hours <= 30) {
+    if (day >= 1 && day <= 5 && hours <= 13 && hours <= 30) {
       let model = MessageTemplateForFood(
         `Thank you ${textUser} for choosing a vegetarian dish for _*Lunch*_. We will add it to our menu for you! `,
         number
@@ -54,7 +54,7 @@ const Process = async (textUser, text, number) => {
       models.push(model);
     }
   } else if (text == "lunch-non-veg") {
-    if (day >= 1 && day <= 5 && hours <= 15 && minutes <= 30) {
+    if (day >= 1 && day <= 5 && hours <= 13 && minutes <= 30) {
       let model = MessageTemplateForFood(
         `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Lunch*_. We will add it to our menu for you!`,
         number
