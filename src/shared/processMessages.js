@@ -22,9 +22,9 @@ let ISTTime = new Date(d.getTime() + (offset + currentOffset) * 60000);
 let day = ISTTime.getDay();
 let hours = ISTTime.getHours();
 let minutes = ISTTime.getMinutes();
-// console.log(hours);
-// console.log(minutes);
-// console.log(day);
+console.log(hours);
+console.log(minutes);
+console.log(day);
 const Process = async (textUser, text, number) => {
   text = text.toLowerCase();
   console.log(text);
