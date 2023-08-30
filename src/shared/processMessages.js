@@ -75,7 +75,7 @@ const Process = async (textUser, text, number) => {
       models.push(model);
     }
   } else if (text == "dinner-veg") {
-    if (hours < 17) {
+    if (hours < 16) {
       let model = MessageTemplateForFood(
         `Thank you ${textUser} for choosing a vegetarian dish for _*Dinner*_. We will add it to our menu for you! `,
         number
@@ -91,7 +91,7 @@ const Process = async (textUser, text, number) => {
       models.push(model);
     }
   } else if (text == "dinner-non-veg") {
-    if (hours < 17) {
+    if (hours < 16) {
       let model = MessageTemplateForFood(
         `Awesome, ${textUser} you have chosen non-vegetarian dish for _*Dinner*_. We will add it to our menu for you!`,
         number
