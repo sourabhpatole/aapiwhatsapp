@@ -25,6 +25,7 @@ let minutes = ISTTime.getMinutes();
 console.log(hours);
 console.log(minutes);
 console.log(day);
+console.log(hours <= 15);
 const Process = async (textUser, text, number) => {
   text = text.toLowerCase();
   console.log(text);
