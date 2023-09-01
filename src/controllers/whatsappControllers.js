@@ -95,7 +95,7 @@ const getMessage = (messages) => {
 const getName = (dname) => {
   let display = "";
   display = dname["profile"]["name"];
-  // myConsole.log(display);
+  myConsole.log("Sourabh", dname);
   return display;
 };
 
