@@ -30,7 +30,7 @@ const ReceiveMessages = async (req, res) => {
     let messageObject = value["messages"];
     let nameMessage = value["contacts"];
     // let name = contacts["profile"];
-    // myConsole.log(nameMessage);
+    console.log(nameMessage);
 
     if (
       typeof messageObject != "undefined" ||
@@ -38,7 +38,7 @@ const ReceiveMessages = async (req, res) => {
     ) {
       let dname = nameMessage[0];
       let name = getName(dname);
-      // myConsole.log(name);
+      myConsole.log(name);
       let messages = messageObject[0];
       let number = messages["from"];
 
@@ -95,7 +95,7 @@ const getMessage = (messages) => {
 const getName = (dname) => {
   let display = "";
   display = dname["profile"]["name"];
-  myConsole.log("Sourabh", dname);
+  // myConsole.log("Sourabh", dname);
   return display;
 };
 
