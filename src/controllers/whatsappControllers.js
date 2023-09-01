@@ -30,7 +30,9 @@ const ReceiveMessages = async (req, res) => {
     let messageObject = value["messages"];
     let nameMessage = value["contacts"];
     // let name = contacts["profile"];
-    console.log(req.body);
+    console.log(changes);
+    console.log(messageObject);
+    console.log(nameMessage);
 
     if (
       typeof messageObject != "undefined" ||
