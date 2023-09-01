@@ -34,15 +34,11 @@ const Process = async (textUser, text, number) => {
   let models = [];
   // let models1 = [];
   if (text == "hi") {
-    if (day >= 1 && day <= 5) {
-      let model = MessageTemplate(text, number, textUser);
+    let model = MessageTemplate(text, number, textUser);
 
-      // let model1 = MessageTemplateDinner(text, number);
-      models.push(model);
-    } else {
-      let model = MessageTimeOver(text, number, textUser);
-      models.push(model);
-    }
+    // let model1 = MessageTemplateDinner(text, number);
+    models.push(model);
+
     // models1.push(model1);
   } else if (text == "lunch-veg") {
     if (hours < 20) {
