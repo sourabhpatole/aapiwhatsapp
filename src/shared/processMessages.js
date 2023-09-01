@@ -218,7 +218,7 @@ const Process = async (textUser, text, number) => {
     });
     await feedback.save();
     models.push(model);
-  } else if (text == "Choice-first") {
+  } else if (text[0] == "Choice-first") {
     let model = MessageTemplateFoodPreference(
       `${textUser}, Thanks ,Your response is recorded as Choice-first`,
       number
@@ -229,7 +229,7 @@ const Process = async (textUser, text, number) => {
     });
     await foodChoice.save();
     models.push(model);
-  } else if (text == "Choice-second") {
+  } else if (text[0] == "Choice-second") {
     let model = MessageTemplateFoodPreference(
       `${textUser}, Thanks ,Your response is recorded as Choice-second`,
       number
@@ -240,7 +240,7 @@ const Process = async (textUser, text, number) => {
     });
     await foodChoice.save();
     models.push(model);
-  } else if (text == "Choice-third") {
+  } else if (text[0] == "Choice-third") {
     let model = MessageTemplateFoodPreference(
       `${textUser}, Thanks ,Your response is recorded as Choice-third`,
       number
