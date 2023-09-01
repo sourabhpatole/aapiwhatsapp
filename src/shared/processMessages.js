@@ -33,7 +33,7 @@ const Process = async (textUser, text, number) => {
   console.log(text);
   let models = [];
   // let models1 = [];
-  if (text.includes("hi")) {
+  if (text == "hi") {
     if (day >= 1 && day <= 5) {
       let model = MessageTemplate(text, number, textUser);
 
