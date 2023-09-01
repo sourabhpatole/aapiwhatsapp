@@ -10,11 +10,13 @@ const {
   MessageTemplateForFood,
   MessageTemplateFeedback,
   MessageTimeOver,
+  MessageTemplateFoodPreference,
 } = require("./whatsappModels");
 const whatsapplunch = require("../model/WmessageSchemaL");
 const whatsappdinner = require("../model/WmessageSchemaD");
 const whatsappfeedbacklunch = require("../model/FeedbackSchemaL");
 const whatsappfeedbackdinner = require("../model/FeedbackSchemaD");
+const whatsappFoodChoice = require("../model/FoodChoiceSchema");
 let d = new Date();
 let currentOffset = d.getTimezoneOffset();
 let offset = 330;
@@ -215,6 +217,39 @@ const Process = async (textUser, text, number) => {
       rating: 5,
     });
     await feedback.save();
+    models.push(model);
+  } else if (text == "Choice-first") {
+    let model = MessageTemplateFoodPreference(
+      `${textUser}, Thanks ,Your response is recorded as Choice-first`,
+      number
+    );
+    let foodChoice = new whatsappFoodChoice({
+      name: textUser,
+      choice: 1,
+    });
+    await foodChoice.save();
+    models.push(model);
+  } else if (text == "Choice-second") {
+    let model = MessageTemplateFoodPreference(
+      `${textUser}, Thanks ,Your response is recorded as Choice-second`,
+      number
+    );
+    let foodChoice = new whatsappFoodChoice({
+      name: textUser,
+      choice: 2,
+    });
+    await foodChoice.save();
+    models.push(model);
+  } else if (text == "Choice-third") {
+    let model = MessageTemplateFoodPreference(
+      `${textUser}, Thanks ,Your response is recorded as Choice-third`,
+      number
+    );
+    let foodChoice = new whatsappFoodChoice({
+      name: textUser,
+      choice: 3,
+    });
+    await foodChoice.save();
     models.push(model);
   } else {
     let model = MessageText(
