@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const FoodChoiceSchema = new mongoose.Schema({
+  name: {
+    type: "String",
+  },
   choice: {
     type: "Number",
     required: true,
-  },
-  name: {
-    type: "String",
   },
 });
 const whatsappFoodChoice = new mongoose.model(
